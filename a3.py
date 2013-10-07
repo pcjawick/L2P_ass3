@@ -14,7 +14,7 @@ is represented as the list
 """
 
 
-def is_valid_word(wordlist, word):
+def is_valid_word(wordlist, word):'''Works!'''
     """ (list of str, str) -> bool
 
     Return True if and only if word is an element of wordlist.
@@ -22,9 +22,10 @@ def is_valid_word(wordlist, word):
     >>> is_valid_word(['ANT', 'BOX', 'SOB', 'TO'], 'TO')
     True
     """
+    return word in wordlist
 
 
-def make_str_from_row(board, row_index):
+def make_str_from_row(board, row_index): '''Works!'''
     """ (list of list of str, int) -> str
 
     Return the characters from the row of the board with index row_index
@@ -33,6 +34,13 @@ def make_str_from_row(board, row_index):
     >>> make_str_from_row([['A', 'N', 'T', 'T'], ['X', 'S', 'O', 'B']], 0)
     'ANTT'
     """
+   new_string = ''
+
+    for char in board[row_index]:
+        if char in board[row_index]:
+            new_string = new_string + char
+
+    return new_string
 
 
 def make_str_from_column(board, column_index):
@@ -44,6 +52,13 @@ def make_str_from_column(board, column_index):
     >>> make_str_from_column([['A', 'N', 'T', 'T'], ['X', 'S', 'O', 'B']], 1)
     'NS'
     """
+    new_string2 = ''
+
+    for char in board[table][column_index]:
+        if char in board[table][column_index]:
+            new_string2 = new_string + char
+
+    return new_string2
 
 
 def board_contains_word_in_row(board, word):
@@ -60,10 +75,8 @@ def board_contains_word_in_row(board, word):
     """
 
     for row_index in range(len(board)):
-        if word in make_str_from_row(board, row_index):
-            return True
-
-    return False
+        word in make_str_from_row(board, row_index):
+        
 
 
 def board_contains_word_in_column(board, word):
